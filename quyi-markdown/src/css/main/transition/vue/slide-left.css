@@ -1,0 +1,22 @@
+$prefix: "gl-";
+// slide left
+.#{$prefix}slide-left-leave-active,
+.#{$prefix}slide-left-enter-active {
+  transition: all 0.3s ease;
+}
+
+.#{$prefix}slide-left-leave {
+}
+
+.#{$prefix}slide-left-enter-to {
+}
+
+.#{$prefix}slide-left-leave-to {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.#{$prefix}slide-left-enter {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}

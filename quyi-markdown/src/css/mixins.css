@@ -1,0 +1,11 @@
+@mixin clearfix() {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+@import "mixins/tab-focus";
+@import "mixins/hover";

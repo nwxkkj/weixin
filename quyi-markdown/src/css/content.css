@@ -1,0 +1,419 @@
+/*
+* 美化 content 相关标签 后面可用 markdown等 覆盖 即是统一重置 又是美化
+* 基本单位 用em 这样相对外层 灵活整体调整大小 而不用rem
+*/
+
+/*
+* block
+*/
+
+@mixin block-base() {
+  // 为 块级元素设置margin 统一 top是0 bottom 一定值
+  margin-top: 0;
+  margin-bottom: 16px; // 所有的块级元素都。。。
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include block-base();
+  margin-top: 1.8em;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.875em;
+}
+
+h6 {
+  font-size: 0.85em;
+}
+
+p {
+  @include block-base();
+}
+
+blockquote {
+  @include block-base();
+  margin-left: 0;
+  margin-right: 0;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-left: 0.2em solid $primary;
+}
+
+blockquote>:last-child {
+  margin-top: 0;
+  margin-bottom: 0 !important;
+}
+
+/*
+* inline
+*/
+
+b,
+strong {
+  font-weight: bolder; // Add the correct font weight in Chrome, Edge, and Safari.
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+hr {
+  // 1. Add the correct box sizing in Firefox.
+  // 2. Show the overflow in Edge and IE.
+  box-sizing: content-box; // 1
+  height: 0; // 1
+  overflow: visible; // 2
+  // other
+  margin: 24px 0;
+  padding: 0;
+  margin: 15px 0;
+  border: 0;
+  border-bottom: 1px solid #f5f5f5;
+  background: transparent;
+  overflow: hidden;
+
+  &::before {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+
+/*
+* table
+*/
+
+caption {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: red;
+  text-align: left;
+  caption-side: bottom;
+}
+
+table {
+  @include block-base();
+  border-spacing: 0;
+  border-collapse: collapse;
+  background-color: transparent;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+th {
+  text-align: left;
+}
+
+table th,
+table td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+table th {
+  font-weight: 600;
+}
+
+table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+/*
+* code
+*/
+
+// Code
+// Inline and block code styles
+code,
+kbd,
+pre,
+samp {
+  $font-family-monospace: monospace, Menlo, Monaco, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier;
+  font-family: $font-family-monospace;
+  font-size: 1em;
+}
+
+pre {
+  overflow: auto;
+  padding: 1em;
+  border-radius: 6px;
+  word-wrap: normal;
+  background-color: $light;
+  line-height: 1.2;
+}
+
+code {
+  margin: 0;
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  border-radius: 3px;
+  font-size: 85%;
+  background-color: rgba($primary, 0.04);
+  color: $primary;
+
+  &::before,
+  &::after {
+    letter-spacing: -0.2em;
+    content: "\00a0";
+  }
+}
+
+pre code {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  border: 0;
+  word-break: normal;
+  white-space: pre;
+  word-wrap: normal;
+  background-color: transparent;
+  line-height: inherit;
+  color: rgba(255, 255, 255, 0.8);
+
+  &::before,
+  &::after {
+    content: normal;
+  }
+}
+
+kbd {
+  // User input typically entered via keyboard
+  padding: 0.4rem 0.2rem;
+  font-size: 90%;
+  color: white;
+  background-color: $dark;
+  border-radius: 2px;
+  box-shadow: 0 0 6px 5px rgba(0, 0, 0, 0.3);
+
+  //   display: inline-block;
+  //   font-size: 11px;
+  //   line-height: 10px;
+  //   padding: 3px 5px;
+  //   line-height: 10px;
+  //   color: #444d56;
+  //   vertical-align: middle;
+  //   background-color: #fcfcfc;
+  //   border: solid 1px #c6cbd1;
+  //   border-bottom-color: #959da5;
+  //   border-radius: 3px;
+  //   box-shadow: inset 0 -1px 0 #959da5;
+
+  kbd {
+    padding: 0;
+    font-size: 100%;
+    font-weight: bold;
+    box-shadow: 0 0 6px 5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/*
+* ======================================================================================================================================
+* markdown作用域 基础样式
+*/
+
+@mixin markdown-scope {
+
+  font-family: "PingFang SC", monospace, -apple-system, "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft Yahei", sans-serif;
+
+  &::before {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+
+  &>*:first-child {
+    margin-top: 0 !important;
+  }
+
+  &>*:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  h1 {
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid $light;
+  }
+
+  h2 {
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid $light;
+  }
+
+  /*
+  * list
+  */
+
+  dl,
+  ol,
+  ul {
+    @include block-base();
+    list-style: initial;
+  }
+
+  ul,
+  ol {
+    padding-left: 2em;
+  }
+
+  dd {
+    margin-left: 0;
+  }
+
+  li>p {
+    margin-top: 16px;
+  }
+
+  li+li {
+    margin-top: 0.25em;
+  }
+
+  dl {
+    padding: 0;
+  }
+
+  dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+  }
+
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /*
+  * inline
+  */
+
+  a {
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+
+    &:not([href]) {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:active,
+    &:hover {
+      outline-width: 0;
+    }
+  }
+
+  img {
+    box-sizing: content-box;
+    border-style: none;
+    max-width: 100%;
+    background-color: #fff;
+  }
+
+  /*
+  * form
+  */
+  input {
+    font: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0;
+    overflow: visible;
+  }
+
+  [type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+}
+
+/*
+* ======================================================================================================================================
+* markdown 重置 基本的content 样式
+*/
+
+.markdown-body {
+  @include markdown-scope();
+
+  position: relative;
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  word-wrap: break-word;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(60, 60, 60, 1);
+
+  // padding: 30px;
+  // border: 1px solid #eaeaea;
+  // border-radius: 4px;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: normal;
+  }
+
+  pre {
+    background-color: #282c34;
+  }
+}

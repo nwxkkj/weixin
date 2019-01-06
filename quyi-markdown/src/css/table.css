@@ -1,0 +1,26 @@
+// Basic Bootstrap table
+.table {
+  max-width: 100%;
+  width: 100%;
+  margin-bottom: 15px;
+
+  th,
+  td {
+    padding: 15px;
+    vertical-align: top;
+    border-top: 1px solid red;
+  }
+
+  thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid blue;
+  }
+
+  tbody + tbody {
+    border-top: 2px solid yellow;
+  }
+
+  .table {
+    background-color: black;
+  }
+}

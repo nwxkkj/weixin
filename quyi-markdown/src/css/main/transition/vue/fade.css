@@ -1,0 +1,15 @@
+$prefix: "gl-";
+// fade
+.#{$prefix}fade-leave-active,
+.#{$prefix}fade-enter-active {
+  transition: opacity 0.5s ease;
+}
+
+.#{$prefix}fade-leave-to,
+.#{$prefix}fade-enter {
+  opacity: 0;
+}
+
+.#{$prefix}fade-leave,
+.#{$prefix}fade-enter-to {
+}

@@ -1,0 +1,18 @@
+$prefix: "gl-";
+// slide
+.#{$prefix}slide-leave-active,
+.#{$prefix}slide-enter-active {
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.#{$prefix}slide-enter-to,
+.#{$prefix}slide-leave {
+  height: 62px;
+}
+
+.#{$prefix}slide-enter,
+.#{$prefix}slide-leave-to {
+  opacity: 0;
+  height: 0;
+}

@@ -1,0 +1,73 @@
+$prefix: gl-;
+
+// .clearfix
+
+@import "mixins/clearfix";
+.clearfix {
+  @include clearfix();
+}
+
+// .hairline
+
+@import "mixins/border-retina";
+
+[class*="#{$prefix}hairline"] {
+  position: relative;
+  &::after {
+    @include hairline(#e5e5e5);
+  }
+}
+
+.#{$prefix}hairline {
+  &--top::after {
+    border-top-width: 1px !important;
+  }
+
+  &--left::after {
+    border-left-width: 1px !important;
+  }
+
+  &--right::after {
+    border-right-width: 1px !important;
+  }
+
+  &--bottom::after {
+    border-bottom-width: 1px !important;
+  }
+
+  &--top-bottom::after {
+    border-width: 1px 0 !important;
+  }
+
+  &--surround::after {
+    border-width: 1px !important;
+  }
+}
+
+// img
+@import "mixins/_image";
+.img-fluid {
+  @include img-fluid;
+}
+
+.img-block {
+  @include img-fluid;
+}
+
+.img-thumbnail {
+}
+
+.figure {
+  // Ensures the caption's text aligns with the image.
+  display: inline-block;
+}
+
+.figure-img {
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.figure-caption {
+  font-size: 1rem;
+  color: gray;
+}

@@ -1,0 +1,243 @@
+/**
+ * 基本样式入口 reset 兼容
+ */
+
+::selection {
+  background: $primary;
+  color: white;
+}
+
+::-moz-selection {
+  background: $primary;
+  color: white;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -ms-overflow-style: scrollbar;
+  -ms-text-size-adjust: 100%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  margin: 0;
+  word-break: break-all;
+  font-family: "PingFang SC", monospace, sans-serif, Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: $primary;
+  background-color: transparent; // Remove the gray background on active links in IE 10.
+  -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
+
+  &:hover {
+    color: darken($primary, 10);
+    text-decoration: inherit;
+  }
+
+  &:focus {
+    outline: none;
+    outline-offset: none;
+  }
+
+  /*
+  Remove the outline on focused links when they are also active or hovered
+  in all browsers (opinionated).
+  */
+  &:active,
+  &:hover {
+    outline-width: 0;
+  }
+}
+
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+
+  @include hover-focus {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+ul,
+ol {
+  // 取消 padding margin
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+/*
+* media
+*/
+img {
+  vertical-align: middle;
+  line-height: 1;
+  /* Remove the border on images inside links in IE 10-. */
+  border-style: none;
+}
+
+svg:not(:root) {
+  //Hide the overflow in IE.
+  overflow: hidden;
+}
+
+/*
+* form
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  // 1. Change font properties to `inherit` in all browsers (opinionated).
+  // 2. Remove the margin in Firefox and Safari.
+  font: inherit; // 1
+  margin: 0; // 2
+}
+
+button,
+input {
+  // Show the overflow in IE.
+  // 1. Show the overflow in Edge.
+  overflow: visible; // 1
+}
+
+input:-webkit-autofill,
+select:-webkit-autofill,
+textarea:-webkit-autofill {
+  background-color: inherit;
+  box-shadow: inset 0 0 0 1000px #fff;
+}
+
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"] {
+  -webkit-appearance: listbox;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+[role="button"] {
+  cursor: pointer;
+}
+
+[role="button"],
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+label {
+  display: inline-block;
+}
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+button,
+input,
+select,
+textarea {
+  line-height: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  line-height: inherit;
+}
+
+optgroup {
+  font-weight: bold; // Restore the font weight unset by the previous rule.
+}
+
+abbr[data-original-title],
+abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted $primary;
+}
+
+address {
+  margin-bottom: 1rem;
+  font-style: normal;
+  line-height: inherit;
+}
+
+output {
+  display: inline-block;
+}
+
+figure {
+  margin: 0 0 1rem;
+}
+
+mark {
+  padding: 15px;
+  background-color: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+  font-weight: normal;
+}

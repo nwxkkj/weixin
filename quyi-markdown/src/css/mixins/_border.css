@@ -1,0 +1,73 @@
+@mixin one-left($color: #e3e5e9, $type: solid) {
+  &:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-left: 1px $type $color;
+    color: $color;
+    transform-origin: 0 0;
+    transform: scaleX(0.5);
+  }
+}
+
+@mixin one-right($color: #e3e5e9, $type: solid) {
+  &:after {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    bottom: 0;
+    border-right: 1px $type $color;
+    color: $color;
+    transform-origin: 100% 0;
+    transform: scaleX(0.5);
+  }
+}
+
+@mixin one-top($color: #e3e5e9, $type: solid) {
+  &:before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: -1px;
+    right: 0;
+    height: 1px;
+    border-top: 1px $type $color;
+    color: $color;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+  }
+}
+
+@mixin one-bottom($color: #e3e5e9, $type: solid) {
+  &:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px $type $color;
+    color: $color;
+    transform-origin: 0 100%;
+    transform: scaleY(0.5);
+  }
+}
+
+@mixin one-border($color: #e3e5e9, $type: solid, $radius: 0) {
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    border: 1px $type $color;
+    border-radius: $radius;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}

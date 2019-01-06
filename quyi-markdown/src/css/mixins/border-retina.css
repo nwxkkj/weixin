@@ -1,0 +1,35 @@
+// 1px 边框
+// 为元素添加 Retina 屏幕下的 1px 边框（即 hairline），基于伪类 transform 实现。
+
+$border-poses: top, right, bottom, left;
+
+@mixin border-retina($poses: $border-poses, $border-retina-color: $light) {
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  pointer-events: none;
+
+  @each $pos in $poses {
+    border-#{$pos}: 1px solid $border-retina-color;
+  }
+}
+
+@mixin hairline($border-retina-color: $light) {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: 0 solid $border-retina-color;
+}

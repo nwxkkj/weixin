@@ -1,0 +1,21 @@
+$prefix: "gl-";
+// slide top
+.#{$prefix}slide-top-leave-active,
+.#{$prefix}slide-top-enter-active {
+  transition: all 0.3s ease;
+}
+.#{$prefix}slide-top-leave {
+}
+
+.#{$prefix}slide-top-enter-to {
+}
+
+.#{$prefix}slide-top-leave-to {
+  opacity: 0;
+  transform: translate3d(0, 100%, 0);
+}
+
+.#{$prefix}slide-top-enter {
+  opacity: 0;
+  transform: translate3d(0, -100%, 0);
+}
